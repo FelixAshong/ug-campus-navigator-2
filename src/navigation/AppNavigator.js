@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 
 // Import screens
+import HomeScreen from '../screens/HomeScreen';
 import MapScreen from '../screens/MapScreen';
 import SearchScreen from '../screens/SearchScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
@@ -17,7 +18,7 @@ const Stack = createStackNavigator();
 const MapStack = () => (
   <Stack.Navigator>
     <Stack.Screen 
-      name="Map" 
+      name="MapScreen" 
       component={MapScreen} 
       options={{ headerShown: false }}
     />
@@ -37,7 +38,9 @@ const AppNavigator = () => {
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
 
-            if (route.name === 'Map') {
+            if (route.name === 'Home') {
+              iconName = focused ? 'home' : 'home-outline';
+            } else if (route.name === 'Map') {
               iconName = focused ? 'map' : 'map-outline';
             } else if (route.name === 'Search') {
               iconName = focused ? 'search' : 'search-outline';
@@ -51,8 +54,10 @@ const AppNavigator = () => {
           },
           tabBarActiveTintColor: '#007AFF',
           tabBarInactiveTintColor: 'gray',
+          headerShown: false,
         })}
       >
+        <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Map" component={MapStack} />
         <Tab.Screen name="Search" component={SearchScreen} />
         <Tab.Screen name="Favorites" component={FavoritesScreen} />

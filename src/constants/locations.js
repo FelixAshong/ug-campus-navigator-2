@@ -1,144 +1,84 @@
 export const CAMPUS_LOCATIONS = [
-  // Academic Buildings
   {
-    id: 'balme-library',
+    id: '1',
     name: 'Balme Library',
     type: 'academic',
-    coordinates: [-0.1962, 5.6502],
-    description: 'Main University Library',
     category: 'academic',
+    description: 'The main library at University of Ghana. It holds over 100,000 books and provides study spaces for students.',
+    coordinates: [-0.1962, 5.6502]
   },
   {
-    id: 'great-hall',
+    id: '2',
     name: 'Great Hall',
-    type: 'academic',
-    coordinates: [-0.1965, 5.6505],
-    description: 'Main Auditorium',
-    category: 'academic',
+    type: 'administrative',
+    category: 'administrative',
+    description: 'The main hall for university ceremonies and events.',
+    coordinates: [-0.186, 5.651]
   },
   {
-    id: 'computer-science',
-    name: 'Department of Computer Science',
-    type: 'academic',
-    coordinates: [-0.1960, 5.6500],
-    description: 'Computer Science Department',
-    category: 'academic',
-  },
-  // Add more academic buildings...
-
-  // Halls of Residence
-  {
-    id: 'legon-hall',
+    id: '3',
     name: 'Legon Hall',
     type: 'residence',
-    coordinates: [-0.1968, 5.6508],
-    description: 'Legon Hall of Residence',
     category: 'residence',
+    description: 'One of the oldest residence halls on campus.',
+    coordinates: [-0.192, 5.655]
   },
   {
-    id: 'commonwealth-hall',
-    name: 'Commonwealth Hall',
+    id: '4',
+    name: 'Business School',
+    type: 'academic',
+    category: 'academic',
+    description: 'Home to the university\'s business and management programs.',
+    coordinates: [-0.201, 5.649]
+  },
+  {
+    id: '5',
+    name: 'Student Union Building',
+    type: 'other',
+    category: 'other',
+    description: 'Center for student activities and organizations.',
+    coordinates: [-0.189, 5.653]
+  },
+  {
+    id: '6',
+    name: 'Faculty of Law',
+    type: 'academic',
+    category: 'academic',
+    description: 'Home to the university\'s law programs and moot court facilities.',
+    coordinates: [-0.198, 5.652]
+  },
+  {
+    id: '7',
+    name: 'Akuafo Hall',
     type: 'residence',
-    coordinates: [-0.1969, 5.6509],
-    description: 'Commonwealth Hall of Residence',
     category: 'residence',
-  },
-  // Add more halls...
-
-  // Administrative Buildings
-  {
-    id: 'jubilee-house',
-    name: 'Jubilee House',
-    type: 'administrative',
-    coordinates: [-0.1963, 5.6503],
-    description: 'Vice Chancellor\'s Office',
-    category: 'administrative',
+    description: 'Student residence hall with dining facilities.',
+    coordinates: [-0.194, 5.657]
   },
   {
-    id: 'registrar-office',
-    name: 'Registrar\'s Office',
-    type: 'administrative',
-    coordinates: [-0.1964, 5.6504],
-    description: 'University Registrar\'s Office',
-    category: 'administrative',
-  },
-  // Add more administrative buildings...
-
-  // Sports and Recreation
-  {
-    id: 'sports-stadium',
-    name: 'Sports Stadium',
-    type: 'sports',
-    coordinates: [-0.1970, 5.6510],
-    description: 'University Sports Stadium',
-    category: 'sports',
-  },
-  {
-    id: 'sports-complex',
-    name: 'Sports Complex',
-    type: 'sports',
-    coordinates: [-0.1971, 5.6511],
-    description: 'University Sports Complex',
-    category: 'sports',
-  },
-  // Add more sports facilities...
-
-  // Dining and Shopping
-  {
-    id: 'legon-dining',
-    name: 'Legon Hall Dining Hall',
-    type: 'dining',
-    coordinates: [-0.1972, 5.6512],
-    description: 'Legon Hall Dining Hall',
-    category: 'dining',
-  },
-  {
-    id: 'shopping-mall',
-    name: 'Legon Shopping Mall',
-    type: 'shopping',
-    coordinates: [-0.1973, 5.6513],
-    description: 'University Shopping Mall',
-    category: 'shopping',
-  },
-  // Add more dining and shopping locations...
-
-  // Health and Wellness
-  {
-    id: 'university-hospital',
+    id: '8',
     name: 'University Hospital',
     type: 'health',
-    coordinates: [-0.1974, 5.6514],
-    description: 'University Hospital',
     category: 'health',
+    description: 'Medical facility serving students, staff, and local community.',
+    coordinates: [-0.205, 5.651]
   },
   {
-    id: 'university-clinic',
-    name: 'University Clinic',
-    type: 'health',
-    coordinates: [-0.1975, 5.6515],
-    description: 'University Clinic',
-    category: 'health',
-  },
-  // Add more health facilities...
-
-  // Other Facilities
-  {
-    id: 'university-chapel',
-    name: 'University Chapel',
-    type: 'religious',
-    coordinates: [-0.1976, 5.6516],
-    description: 'University Chapel',
-    category: 'religious',
+    id: '9',
+    name: 'Sports Complex',
+    type: 'sports',
+    category: 'sports',
+    description: 'Facilities for various sports including football, basketball, and swimming.',
+    coordinates: [-0.208, 5.654]
   },
   {
-    id: 'university-mosque',
-    name: 'University Mosque',
-    type: 'religious',
-    coordinates: [-0.1977, 5.6517],
-    description: 'University Mosque',
-    category: 'religious',
-  },
-  // Add more facilities...
+    id: '10',
+    name: 'Central Cafeteria',
+    type: 'dining',
+    category: 'dining',
+    description: 'Main dining facility offering a variety of food options.',
+    coordinates: [-0.195, 5.650]
+  }
 ];
 
 export const LOCATION_CATEGORIES = [

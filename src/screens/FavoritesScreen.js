@@ -44,7 +44,7 @@ const FavoritesScreen = () => {
 
   const handleLocationPress = (location) => {
     navigation.navigate('Map', {
-      screen: 'Map',
+      screen: 'MapScreen',
       params: {
         selectedLocation: location.coordinates,
       },

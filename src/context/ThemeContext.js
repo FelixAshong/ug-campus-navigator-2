@@ -1,59 +1,64 @@
-import React, { createContext, useState, useEffect } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { createContext, useState, useContext, useEffect } from 'react';
+import { Appearance } from 'react-native';
 
-export const ThemeContext = createContext();
+// Theme definitions
+const lightTheme = {
+  primary: '#007AFF',
+  background: '#FFFFFF',
+  card: '#F2F2F7',
+  text: '#000000',
+  border: '#E5E5EA',
+  accent: '#FF9500',
+};
+
+const darkTheme = {
+  primary: '#0A84FF',
+  background: '#1C1C1E',
+  card: '#2C2C2E',
+  text: '#FFFFFF',
+  border: '#38383A',
+  accent: '#FF9F0A',
+};
+
+// Create context
+const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  // Check device theme preference
+  const deviceTheme = Appearance.getColorScheme();
+  const [isDarkMode, setIsDarkMode] = useState(deviceTheme === 'dark');
+  const [theme, setTheme] = useState(isDarkMode ? darkTheme : lightTheme);
 
+  // Listen for device theme changes
   useEffect(() => {
-    loadTheme();
+    const subscription = Appearance.addChangeListener(({ colorScheme }) => {
+      setIsDarkMode(colorScheme === 'dark');
+      setTheme(colorScheme === 'dark' ? darkTheme : lightTheme);
+    });
+
+    return () => {
+      subscription.remove();
+    };
   }, []);
 
-  const loadTheme = async () => {
-    try {
-      const settings = await AsyncStorage.getItem('settings');
-      if (settings) {
-        const { darkMode } = JSON.parse(settings);
-        setIsDarkMode(darkMode);
-      }
-    } catch (error) {
-      console.error('Error loading theme:', error);
-    }
-  };
-
-  const toggleTheme = async () => {
-    const newTheme = !isDarkMode;
-    setIsDarkMode(newTheme);
-    try {
-      const settings = await AsyncStorage.getItem('settings');
-      const parsedSettings = settings ? JSON.parse(settings) : {};
-      await AsyncStorage.setItem(
-        'settings',
-        JSON.stringify({ ...parsedSettings, darkMode: newTheme })
-      );
-    } catch (error) {
-      console.error('Error saving theme:', error);
-    }
-  };
-
-  const theme = {
-    isDarkMode,
-    toggleTheme,
-    colors: {
-      primary: '#007AFF',
-      background: isDarkMode ? '#121212' : '#FFFFFF',
-      card: isDarkMode ? '#1E1E1E' : '#FFFFFF',
-      text: isDarkMode ? '#FFFFFF' : '#000000',
-      border: isDarkMode ? '#2C2C2C' : '#E5E5E5',
-      notification: '#FF3B30',
-      placeholder: isDarkMode ? '#8E8E93' : '#8E8E93',
-    },
+  // Toggle theme function
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    setTheme(isDarkMode ? lightTheme : darkTheme);
   };
 
   return (
-    <ThemeContext.Provider value={theme}>
+    <ThemeContext.Provider value={{ theme, isDarkMode, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
+};
+
+// Custom hook to use the theme
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (context === undefined) {
+    throw new Error('useTheme must be used within a ThemeProvider');
+  }
+  return context;
 }; 
