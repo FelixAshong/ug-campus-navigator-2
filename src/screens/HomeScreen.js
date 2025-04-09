@@ -9,7 +9,7 @@ import { CAMPUS_LOCATIONS } from '../constants/locations';
 const { width } = Dimensions.get('window');
 
 // Sample data for announcements with placeholder images for development
-const announcementImage = require('../../assets/splash-icon.png'); // Use require for local assets
+const announcementImage = { uri: '../../assets/splash-icon.png' }; // Use uri for local assets
 const announcements = [
   {
     id: '1',
