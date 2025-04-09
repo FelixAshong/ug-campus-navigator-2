@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1242" height="2436" viewBox="0 0 1242 2436" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1242" height="2436" fill="#007AFF"/>
+  <circle cx="621" cy="1218" r="500" fill="white" opacity="0.1"/>
+  <circle cx="621" cy="1218" r="400" fill="white" opacity="0.2"/>
+  <circle cx="621" cy="1218" r="300" fill="white"/>
+  <circle cx="621" cy="1218" r="100" fill="#007AFF"/>
+  <path d="M621 818 L671 1118 L971 1118 L731 1318 L781 1618 L621 1418 L461 1618 L511 1318 L271 1118 L571 1118 Z" fill="#007AFF"/>
+  <text x="621" y="1818" font-family="Arial" font-size="72" fill="white" text-anchor="middle">UG Campus Navigator</text>
+</svg> 
